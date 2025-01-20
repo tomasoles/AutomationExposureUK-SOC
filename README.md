@@ -29,7 +29,7 @@ To measure the semantic similarity between patents and job tasks, we utilize the
 #### Cosine Similarity
 We calculate semantic similarity using the cosine similarity metric between the dense vectors. A matrix $X^\tau_{p,j}$ represents the similarity scores between each patent ($p$) and job task ($j$) for a given technology ($\tau$).
 
-$$\text{cosine\_similarity}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$$
+$$\text{cosine similarity}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$$
 
 Here, $\mathbf{u}$ and $\mathbf{v}$ are the dense vectors representing the semantic embeddings. The similarity matrix $X^\tau_{p,j}$ represents the similarity scores between each patent ($p$) and job task ($j$) for a given technology ($\tau$), and is computed using cosine similarity for all $p,j$ pairs.
 
