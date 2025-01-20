@@ -29,9 +29,7 @@ To measure the semantic similarity between patents and job tasks, we utilize the
 #### Cosine Similarity
 We calculate semantic similarity using the cosine similarity metric between the dense vectors. A matrix $X^\tau_{p,j}$ represents the similarity scores between each patent ($p$) and job task ($j$) for a given technology ($\tau$).
 
-$$
-\text{cosine\_similarity}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}
-$$
+$$\text{cosine\_similarity}(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}$$
 
 Here, $\mathbf{u}$ and $\mathbf{v}$ are the dense vectors representing the semantic embeddings. The similarity matrix $X^\tau_{p,j}$ represents the similarity scores between each patent ($p$) and job task ($j$) for a given technology ($\tau$), and is computed using cosine similarity for all $p,j$ pairs.
 
@@ -40,21 +38,17 @@ Here, $\mathbf{u}$ and $\mathbf{v}$ are the dense vectors representing the seman
 #### Thresholding
 Following Autor et al. (2024), we retain the top 15% highest similarity scores, applying the threshold:
 
-\[
-I^\tau_{p,j} = \begin{cases} 
+$$I^\tau_{p,j} = \begin{cases} 
 1 & \text{if } X^\tau_{p,j} \geq \lambda^\tau_t \\
 0 & \text{otherwise}
-\end{cases}
-\]
+\end{cases}$$
 
 where $\lambda^\tau_t$ represents the similarity distribution threshold for a given technology ($\tau$) and period ($t$).
 
 #### Aggregation
 For each occupation $j$ and technology $\tau$, we calculate cumulative exposure to automation:
 
-\[
-\text{Aut}^\tau_{j,t} = \sum_{p \in \mathcal{P}^\tau} \sum_{j \in \mathcal{O}} I^\tau_{p,j}
-\]
+$$\text{Aut}^\tau_{j,t} = \sum_{p \in \mathcal{P}^\tau} \sum_{j \in \mathcal{O}} I^\tau_{p,j}$$
 
 This measure aggregates exposure across all relevant patents and tasks over time.
 
